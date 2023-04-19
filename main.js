@@ -5,6 +5,8 @@ const log = require("electron-log")
 
 log.transports.file.resolvePath = () => path.join("C:\Users\josed\Documents\Proyectos\pruebas\auto-update-electron", "logs/main.log")
 
+log.log("Application version = " + app.getVersion())
+
 let win;
 
 function createWindow() {
@@ -21,16 +23,25 @@ app.on("ready", () => {
   autoUpdater.checkForUpdatesAndNotify()
 })
 
-autoUpdater.on("update-available", () => {
-  log.info("update-available")
-
-})
 autoUpdater.on("checking-for-update", () => {
   log.info("checking-for-update")
 
 })
-autoUpdater.on("download-progress", () => {
-  log.info("download-progress")
+autoUpdater.on("update-available", () => {
+  log.info("update-available")
+
+})
+autoUpdater.on("update-not-available", () => {
+  log.info("update-not-available")
+
+})
+autoUpdater.on("error", () => {
+  log.info("Error in auto-updater")
+
+})
+autoUpdater.on("download-progress", (progressTrack) => {
+  log.info("\n\ndownload-progress")
+  log.info(progressTrack)
 
 })
 autoUpdater.on("update-downloaded", () => {
