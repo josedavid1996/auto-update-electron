@@ -1,12 +1,12 @@
 {
   "name": "auto-update-electron",
-  "version": "1.0.1",
+  "version": "1.0.7",
   "description": "",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder",
-    "package": "electron-builder -p always",
+    "package": "electron-builder --win -p always",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "build": {
@@ -15,7 +15,7 @@
         "provider": "github",
         "owner": "josedavid1996",
         "repo": "auto-update-electron",
-        "token": "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"
+        "token": "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"
       }
     ]
   },
@@ -24,10 +24,10 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^24.1.2",
-    "electron-builder": "^23.6.0",
-    "electron-updater": "^5.3.0"
+    "electron-builder": "^23.6.0"
   },
   "dependencies": {
-    "electron-log": "^4.4.8"
+    "electron-log": "^4.4.8",
+    "electron-updater": "^5.3.0"
   }
 }
